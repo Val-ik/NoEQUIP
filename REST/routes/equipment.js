@@ -6,7 +6,11 @@ let DB = require('../db/db')
 
 // GET consultar coleccion de usuarios
 router.get('/', (req, res, next) => {
-  let userId = parseInt(req.body.userId)
+  if req.body.bit == 1
+	let userId = parseInt(req.body.userId)
+  else
+	let userId = null
+  req.body.bit = 0
   let equipment = DB.select('equipment',null,userId)
   res.status(200).send(equipment)
 });
