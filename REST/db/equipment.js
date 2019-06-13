@@ -6,8 +6,7 @@ let schema = {
 	numSerie: 'string',
     ubicacion: 'string',
 	fechaEntrada:'string',
-	fechaCalibracion:'string',
-	userId:'number'
+	fechaCalibracion:'string'
 }
 
 // contenido inicial
@@ -18,8 +17,7 @@ let data = [
 		numSerie: "24813-001",
 		ubicacion: "Metrologia",
 		fechaEntrada:"24/05/2018",
-		fechaCalibracion:"01/06/2019",
-		UserId:1
+		fechaCalibracion:"01/06/2019"
     }
 ]
 

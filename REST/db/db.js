@@ -2,7 +2,7 @@
 
 const collections = {
     todos: require('./todos'),
-    users: require('./users'),
+    equipment: require('./equipment'),
 	//equipment: require('./equipment')
 }
 

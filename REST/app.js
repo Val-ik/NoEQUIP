@@ -7,7 +7,7 @@ const logger = require('morgan')
 
 // logica para procesar los recursos
 const indexRouter = require('./routes/index')
-const usersRouter = require('./routes/users')
+const equipmentRouter = require('./routes/equipment')
 const todosRouter = require('./routes/todos')
 //const equipmentRouter = require('./routes/equipment')
 
@@ -22,14 +22,14 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // rutas de los recursos, representa el Nivel 1 de un API REST
 app.use('/', indexRouter) // pagina de hola mundo
-app.use('/users', usersRouter) // operaciones hacia el recurso de 'usuarios'
-app.use('/users/:userId/todos', (req, res, next) => { // operaciones hacia el recurso de 'tareas' del 'usuario'
+app.use('/equipment', equipmentRouter) // operaciones hacia el recurso de 'usuarios'
+app.use('/equipment/:userId/todos', (req, res, next) => { // operaciones hacia el recurso de 'tareas' del 'usuario'
     let userId = parseInt(req.params.userId)
     req.body.userId = userId
     next()
 }, todosRouter)
 app.use('/todos', todosRouter) // operaciones hacia el recurso de 'tareas'
-/*app.use('/users/:userId/equipment', (req, res, next) => { // operaciones hacia el recurso de 'equipo' del 'usuario'
+/*app.use('/equipment/:userId/equipment', (req, res, next) => { // operaciones hacia el recurso de 'equipo' del 'usuario'
     let userId = parseInt(req.params.userId)
     req.body.userId = userId
     next()

@@ -2,40 +2,40 @@ const express = require('express');
 let router = express.Router();
 let DB = require('../db/db')
 
-// Operaciones especificas para el recurso de 'equipment'
+// Operaciones especificas para el recurso de 'usuarios'
 
-// GET consultar coleccion de equipos
+// GET consultar coleccion de usuarios
 router.get('/', (req, res, next) => {
   let equipment = DB.select('equipment')
   res.status(200).send(equipment)
 });
 
-// GET consultar equipo especifico
+// GET consultar usuario especifico
 router.get('/:id', (req, res, next) => {
   let id = parseInt(req.params.id)
-  let equipment = DB.select('equipment', id)
-  res.status(200).send(equipment)
+  let user = DB.select('equipment', id)
+  res.status(200).send(user)
 });
 
-// POST insertar equipo
+// POST insertar usuario
 router.post('/', (req, res, next) => {
   let user = DB.insert('equipment', req.body)
-  res.status(200).send(equipment)
+  res.status(200).send(user)
 })
 
-// PUT actualizar equipo
+// PUT actualizar usuario
 router.put('/:id', (req, res, next) => {
   let id = parseInt(req.params.id)
   let object = Object.assign(req.body, {id: id})
   let user = DB.update('equipment', object)
-  res.status(200).send(equipment)
+  res.status(200).send(user)
 })
 
-// DELETE borrar equipo
+// DELETE borrar usuario
 router.delete('/:id', (req, res, next) => {
   let id = parseInt(req.params.id)
   let user = DB.remove('equipment', id)
-  res.status(200).send(equipment)
+  res.status(200).send(user)
 })
 
 module.exports = router;
