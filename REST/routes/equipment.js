@@ -17,8 +17,8 @@ router.get('/:id', (req, res, next) => {
   res.status(200).send(user)
 });
 
-// GET consultar equipo de usuario especifico
-router.get('/:userId', (req, res, next) => {
+// GET consultar equipos de usuario especifico
+router.get('/usuarios/:usersId', (req, res, next) => {
   let userId = parseInt(req.params.userId)
   let user = DB.select('equipment', null, userId)
   res.status(200).send(user)
