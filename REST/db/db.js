@@ -1,9 +1,9 @@
 // en la arquitectura esto seria parte de la capa de datos
 
 const collections = {
-    todos: require('./todos'),
     equipment: require('./equipment'),
-	//equipment: require('./equipment')
+    usuarios: require('./usuarios'),
+	//usuarios: require('./usuarios')
 }
 
 // funciones de utileria
