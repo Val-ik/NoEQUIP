@@ -6,9 +6,7 @@ let DB = require('../db/db')
 
 // GET consultar coleccion de usuarios
 router.get('/', (req, res, next) => {
-  let id = parseInt(req.params.id)
-  let userId = parseInt(req.body.userId)
-  let equipment = DB.select('equipment',id,userId)
+  let equipment = DB.select('equipment')
   res.status(200).send(equipment)
 });
 
@@ -16,6 +14,13 @@ router.get('/', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
   let id = parseInt(req.params.id)
   let user = DB.select('equipment', id)
+  res.status(200).send(user)
+});
+
+// GET consultar equipo de usuario especifico
+router.get('/:userId', (req, res, next) => {
+  let userId = parseInt(req.params.userId)
+  let user = DB.select('equipment', null, userId)
   res.status(200).send(user)
 });
 
