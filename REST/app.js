@@ -28,7 +28,11 @@ app.use('/usuarios/:userId/equipment', (req, res, next) => { // operaciones haci
     req.body.userId = userId
     next()
 }, equipmentRouter)
-app.use('/equipment', equipmentRouter) // operaciones hacia el recurso de 'tareas'
+app.use('/equipment',(req, res, next) => { // set userId as null
+    let userId = null
+    req.body.userId = userId
+    next()
+}, equipmentRouter) // operaciones hacia el recurso de 'tareas'
 /*app.use('/usuarios/:userId/usuarios', (req, res, next) => { // operaciones hacia el recurso de 'equipo' del 'usuario'
     let userId = parseInt(req.params.userId)
     req.body.userId = userId
