@@ -7,9 +7,10 @@ let DB = require('../db/db')
 // GET consultar coleccion de usuarios
 router.get('/', (req, res, next) => {
   if (req.body.bit == 1)
-	  let userId = parseInt(req.body.userId)
+	  a = parseInt(req.body.userId)
   else
-	  let userId = null
+	  a = null
+  let userId = a
   req.body.bit = 0
   let equipment = DB.select('equipment',null,userId)
   res.status(200).send(equipment)
