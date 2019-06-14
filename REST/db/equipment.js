@@ -10,7 +10,6 @@ let schema = {
 	userId:'number'
 }
 
-// contenido inicial
 let data = [
     {
 		id: 1,

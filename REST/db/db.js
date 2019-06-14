@@ -6,7 +6,6 @@ const collections = {
 	//usuarios: require('./usuarios')
 }
 
-// funciones de utileria
 function validateObject(object, schema) {
     for(let key in object) {
         if(typeof object[key] !== schema[key])
@@ -20,9 +19,6 @@ function getLastId(collection) {
     return lastObj.id
 }
 
-// representa un SELECT de SQL
-// TODO: tercer parametro es demasiado especifico, deberia ser un objeto que represente filtros adicionales
-//function select(collection, id, userId) {
 function select(collection, id, userId) {
     let data = collections[collection].data
     if(id) {
@@ -32,7 +28,6 @@ function select(collection, id, userId) {
     }
 }
 
-// representa un INSERT de SQL
 function insert(collection, object) {
     let id = getLastId(collection)
     Object.assign(object, {id: id + 1})
@@ -43,7 +38,6 @@ function insert(collection, object) {
     return null
 }
 
-// representa un UPDATE de SQL
 function update(collection, object) {
     let id = object.id
     if(validateObject(object, collections[collection].schema)) {
@@ -55,7 +49,6 @@ function update(collection, object) {
     return null
 }
 
-// representa un DELETE de SQL
 function remove(collection, id) {
     let data = collections[collection].data
     let index = data.findIndex(e => e.id === id)
